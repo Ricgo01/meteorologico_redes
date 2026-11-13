@@ -8,7 +8,9 @@ fuera del repositorio. Copiar 'credenciales.env.example' como
 import os
 from pathlib import Path
 
-BOOTSTRAP_SERVERS = "161.35.11.141:9092"
+# Por defecto el Edge Server del curso; KAFKA_BOOTSTRAP permite apuntar a otro
+# broker (por ejemplo uno local) sin tocar el codigo.
+BOOTSTRAP_SERVERS = os.environ.get("KAFKA_BOOTSTRAP", "161.35.11.141:9092")
 SECURITY_PROTOCOL = "SASL_PLAINTEXT"
 SASL_MECHANISM = "PLAIN"
 
